@@ -210,7 +210,7 @@ int main(int argc, char **argv)
 				char tmpfilename[strlen(arg_basename)+2+4+1];
 
 				if (gbphoto_isActive(&header, i, NULL) || arg_include_deleted) {
-					snprintf(tmpfilename, sizeof(tmpfilename), "%s%02d.png", arg_basename, i);
+					snprintf(tmpfilename, sizeof(tmpfilename), "%s%02d.png", arg_basename, header.scratchpad1[0x11B2 + i]);
 
 					if (arg_verbose) {
 						printf("Writing file %s\n", tmpfilename);
