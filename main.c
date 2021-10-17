@@ -109,7 +109,28 @@ int main(int argc, char **argv)
 	int arg_use_gameface = 0;
 	int i;
 
-	while ((res = getopt(argc, argv, "hi:o:b:dlavsg")) != -1) {
+	//int nOpt;
+	//int iLongOpt;
+	while (1) {
+		static int iLongOpt;
+		static struct option optLongOpts[] = {
+			{ "help", no_argument, 0, 'h' },
+			{ "index", required_argument, 0, 'i' },
+			{ "output", required_argument, 0, 'o' },
+			{ "basename", required_argument, 0, 'b' },
+			{ "terminal", no_argument, 0, 'd' },
+			{ "list", no_argument, 0, 'l' },
+			{ "all", no_argument, 0, 'a' },
+			{ "verbose", no_argument, 0, 'v' },
+			{ "small", no_argument, 0, 's' },
+			{ "gameface", no_argument, 0, 'g' },
+			{ 0, 0, 0, 0 }
+		};
+
+		iLongOpt = 0;
+		if ((res = getopt_long(argc, argv, "hi:o:b:dlavsg", optLongOpts, &iLongOpt)) == -1) break;
+
+	//while ((res = getopt(argc, argv, "hi:o:b:dlavsg")) != -1) {
 		switch (res)
 		{
 			case 'h':
@@ -152,6 +173,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "No input save file specified\n");
 		return 1;
 	}
+
 
 	input_save_file = argv[optind];
 
