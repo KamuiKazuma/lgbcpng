@@ -60,6 +60,7 @@ static void outputPhotoToTerminal(struct gb_photo *photo, int small_photo)
 
 static void printHelp(void)
 {
+	/*
 	printf("Usage: ./gbcam2png savefile [options]\n");
 	printf("\n");
 	printf("Options:\n");
@@ -88,7 +89,18 @@ static void printHelp(void)
 	printf(" to the photo index, starting at 00) will be created.\n\n");
 	printf(" ** Exporting all photos, including deleted ones:\n\n");
 	printf("  ./gbcam2png source.sav -b test -a\n\n");
-
+	*/
+	printf("Options:\n");
+	printf("\t-h, --help                Display help.\n");
+	printf("\t-i, --index <INDEX>       Source image index.\n");
+	printf("\t-g, --gameface            Use gameface as source.\n");
+	printf("\t-o, --output <OUTPUT>     Set output file name.\n");
+	printf("\t-b, --basename <BASENAME> Set export base name.\n");
+	printf("\t-d, --terminal            Display image to terminal.\n");
+	printf("\t-l, --list                List photos in save file.\n");
+	printf("\t-a, --all                 Export all photos, even deleted ones.\n");
+	printf("\t-v, --verbose             Enable verbose output.\n");
+	printf("\t-s, --small               Use small (32x32) images instead of large (128x112) ones.\n");
 }
 
 int main(int argc, char **argv)
